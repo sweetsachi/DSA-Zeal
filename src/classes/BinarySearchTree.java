@@ -51,4 +51,45 @@ public class BinarySearchTree
         }
     }
     
+    public void print()
+    {
+        if(root != null)
+        {
+            Node nodeToTraverse = root;
+            
+            if(nodeToTraverse.getLeft() == null && nodeToTraverse.getRight() == null)
+            {
+                System.out.println(nodeToTraverse.getTitle());
+            }
+            else
+            {
+                if(nodeToTraverse.getLeft() != null)
+                {
+                    inOrderTraversal(nodeToTraverse.getLeft());
+                }
+                if(nodeToTraverse.getRight() != null)
+                {
+                    inOrderTraversal(nodeToTraverse.getRight());
+                }
+                
+            }
+            
+        }
+    }
+    
+    private void inOrderTraversal(Node node)
+    {
+        if(node.getLeft() != null)
+        {
+            inOrderTraversal(node.getLeft());
+        }
+        
+        System.out.println(node.getTitle());
+        
+        if(node.getRight() != null)
+        { 
+            inOrderTraversal(node.getRight());
+        }
+    }
+    
 }
