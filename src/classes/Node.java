@@ -16,6 +16,7 @@ public class Node {
     private int isbn;
     private int price;
     private String type;
+     private String type1;
     
     private Node left;
     private Node right;
