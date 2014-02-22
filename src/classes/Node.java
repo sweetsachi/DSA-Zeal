@@ -39,9 +39,29 @@ public class Node {
         return this.left;
     }
     
+    public void setLeft(Node node)
+    {
+        this.left = node;
+    }
+    
     public Node getRight()
     {
         return this.right;
+    }
+    
+    public void setRight(Node node)
+    {
+        this.right = node;
+    }
+    
+    public Node getParent()
+    {
+        return this.parent;
+    }
+    
+    public void setParent(Node node)
+    {
+        this.parent = node;
     }
     
     public String getTitle()
