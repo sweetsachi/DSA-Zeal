@@ -15,6 +15,7 @@ public class Node {
     private String authorSurname;
     private int isbn;
     private int price;
+    private String type;
     
     private Node left;
     private Node right;
