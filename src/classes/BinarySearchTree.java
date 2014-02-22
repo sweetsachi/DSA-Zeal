@@ -31,6 +31,7 @@ public class BinarySearchTree
         {
             if( node.getLeft() == null)
             {
+                newNode.setParent(node);
                 node.setLeft(newNode);
             }
             else
@@ -42,6 +43,7 @@ public class BinarySearchTree
         {
             if( node.getRight() == null)
             {
+                newNode.setParent(node);
                 node.setRight(newNode);
             }
             else
@@ -92,7 +94,7 @@ public class BinarySearchTree
         }
     }
     
-    public void searchByTitle(String title)
+    public void searchByTitle(String title) // return the node
     {
         Node result = new Node();
         if(root != null)
@@ -117,15 +119,78 @@ public class BinarySearchTree
         }
         else
         {
-            Node returnNode = new Node();
-            
-            returnNode = findByTitle(search.getLeft(), title);
+            Node returnNode = findByTitle(search.getLeft(), title);
             
             if(returnNode == null)
             {
                 returnNode = findByTitle(search.getRight(), title);
             }
             return returnNode;
+        }
+    }
+    
+    public boolean deleteByTitle(String title)
+    {
+        Node deleteNode = findByTitle(root, title); // use searchByTitle()
+        
+        if(deleteNode != null)
+        {
+            delete(deleteNode);
+        }
+        
+        return false;
+    }
+    
+    private void delete(Node deleteNode)
+    {
+        if(deleteNode.getLeft() == null && deleteNode.getRight() == null)
+        {
+            if(deleteNode.getParent().getLeft() == deleteNode)
+            {
+                deleteNode.getParent().setLeft(deleteNode);
+            }
+            else if(deleteNode.getParent().getRight() == deleteNode)
+            {
+                deleteNode.getParent().setRight(deleteNode);
+            }
+        }
+    }
+    
+    private void deleteInternalNode(Node deleteNode)
+    {
+        if(deleteNode.getParent().getLeft() == deleteNode)
+        {
+            if(deleteNode.getLeft() != null)
+            {
+                deleteNode.getParent().setLeft(deleteNode.getLeft());
+            }
+            else if(deleteNode.getRight() != null)
+            {
+                deleteNode.getParent().setLeft(deleteNode.getRight());
+            }
+        }
+        else if(deleteNode.getParent().getRight() == deleteNode)
+        {
+            if(deleteNode.getLeft() != null)
+            {
+                deleteNode.getParent().setRight(deleteNode.getLeft());
+            }
+            else if(deleteNode.getRight() != null)
+            {
+                deleteNode.getParent().setRight(deleteNode.getRight());
+            }
+        }
+    }
+    
+    private Node getCandidate(Node node)
+    {
+        if(node.getLeft() == null)
+        {
+            return node;
+        }
+        else
+        {
+            return getCandidate(node.getLeft());
         }
     }
     
