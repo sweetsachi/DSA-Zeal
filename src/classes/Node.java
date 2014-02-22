@@ -51,10 +51,5 @@ public class Node {
     {
         return this.isbn;
     }
-            
-   public void insert( Node newNode)
-   {
-       
-   }
-            
+                      
 }
