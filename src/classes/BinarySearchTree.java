@@ -143,20 +143,55 @@ public class BinarySearchTree
     
     private void delete(Node deleteNode)
     {
-        if(deleteNode.getLeft() == null && deleteNode.getRight() == null)
+        if(deleteNode.getLeft() == null && deleteNode.getRight() == null) // has no children
         {
             if(deleteNode.getParent().getLeft() == deleteNode)
             {
-                deleteNode.getParent().setLeft(deleteNode);
+                deleteNode.getParent().setLeft(null);
             }
             else if(deleteNode.getParent().getRight() == deleteNode)
             {
-                deleteNode.getParent().setRight(deleteNode);
+                deleteNode.getParent().setRight(null);
             }
+        }
+        else if(deleteNode.getLeft() != null && deleteNode.getRight() != null) // has both children
+        {
+            Node candidate = getCandidate(deleteNode.getRight());
+            
+            deleteInternalNode(candidate);
+            
+            candidate.setParent(deleteNode.getParent());
+            candidate.setLeft(deleteNode.getLeft());
+            candidate.setRight(deleteNode.getRight());
+            
+            if(deleteNode == root)
+            {
+                root = candidate;
+            }
+            else
+            {
+                if(deleteNode.getParent().getLeft() == deleteNode)
+                {
+                    deleteNode.getParent().setLeft(candidate);
+                }
+                else if(deleteNode.getParent().getRight() == deleteNode)
+                {
+                    deleteNode.getParent().setRight(candidate);
+                }
+            }
+            
+        }
+        else if(deleteNode.getLeft() != null) // has only left child
+        {
+            deleteInternalNode(deleteNode);
+        }
+        else if(deleteNode.getRight() != null) // has only right child
+        {
+            deleteInternalNode(deleteNode);
         }
     }
     
-    private void deleteInternalNode(Node deleteNode)
+    private void deleteInternalNode(Node deleteNode) // has only one child
     {
         if(deleteNode.getParent().getLeft() == deleteNode)
         {
