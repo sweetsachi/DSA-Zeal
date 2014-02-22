@@ -10,5 +10,11 @@ package classes;
  */
 public class BinarySearchTree
 {
+    Node root;
     
+    public void insert(String title, String authorName, String authorSurname, int isbn)
+    {
+        Node newNode = new Node(title, authorName, authorSurname, isbn);
+        
+    }
 }
