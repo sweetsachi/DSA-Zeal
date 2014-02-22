@@ -14,9 +14,8 @@ public class Node {
     private String authorName;
     private String authorSurname;
     private int isbn;
-    private int price;
-    private String type;
     
+    private Node parent;
     private Node left;
     private Node right;
     
@@ -29,6 +28,7 @@ public class Node {
         
         this.left = null;
         this.right = null;
+        this.parent = null;
     }
     
     public Node()
