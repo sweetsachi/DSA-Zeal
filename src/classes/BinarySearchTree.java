@@ -92,4 +92,41 @@ public class BinarySearchTree
         }
     }
     
+    public void searchByTitle(String title)
+    {
+        Node result = new Node();
+        if(root != null)
+        {
+            result = findByTitle(root, title);
+        }
+        
+        System.out.println(result.getTitle());
+        //return null;
+    }
+    
+    private Node findByTitle(Node search, String title)
+    {
+        if(search == null)
+        {
+            return null;
+        }
+        
+        if(search.getTitle().compareTo(title) == 0)
+        {
+            return search;
+        }
+        else
+        {
+            Node returnNode = new Node();
+            
+            returnNode = findByTitle(search.getLeft(), title);
+            
+            if(returnNode == null)
+            {
+                returnNode = findByTitle(search.getRight(), title);
+            }
+            return returnNode;
+        }
+    }
+    
 }
