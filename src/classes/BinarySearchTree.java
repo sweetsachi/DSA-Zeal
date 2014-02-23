@@ -69,6 +69,7 @@ public class BinarySearchTree
                 {
                     inOrderTraversal(nodeToTraverse.getLeft());
                 }
+                System.out.println(nodeToTraverse.getTitle());
                 if(nodeToTraverse.getRight() != null)
                 {
                     inOrderTraversal(nodeToTraverse.getRight());
@@ -158,13 +159,13 @@ public class BinarySearchTree
         {
             Node candidate = getCandidate(deleteNode.getRight());
             
-            deleteInternalNode(candidate);
+            delete(candidate);
             
             candidate.setParent(deleteNode.getParent());
             candidate.setLeft(deleteNode.getLeft());
             candidate.setRight(deleteNode.getRight());
             
-            if(deleteNode == root)
+            if(deleteNode.getParent() == null)
             {
                 root = candidate;
             }
@@ -193,26 +194,38 @@ public class BinarySearchTree
     
     private void deleteInternalNode(Node deleteNode) // has only one child
     {
-        if(deleteNode.getParent().getLeft() == deleteNode)
+        if(deleteNode.getParent() == null) // is the root
         {
-            if(deleteNode.getLeft() != null)
-            {
-                deleteNode.getParent().setLeft(deleteNode.getLeft());
-            }
-            else if(deleteNode.getRight() != null)
-            {
-                deleteNode.getParent().setLeft(deleteNode.getRight());
-            }
+            Node candidate = getCandidate(deleteNode.getRight());
+            delete(candidate);
+            candidate.setLeft(deleteNode.getLeft());
+            candidate.setRight(deleteNode.getRight());
+            root = candidate;
         }
-        else if(deleteNode.getParent().getRight() == deleteNode)
+        else
         {
-            if(deleteNode.getLeft() != null)
+        
+            if(deleteNode.getParent().getLeft() == deleteNode)
             {
-                deleteNode.getParent().setRight(deleteNode.getLeft());
+                if(deleteNode.getLeft() != null)
+                {
+                    deleteNode.getParent().setLeft(deleteNode.getLeft());
+                }
+                else if(deleteNode.getRight() != null)
+                {
+                    deleteNode.getParent().setLeft(deleteNode.getRight());
+                }
             }
-            else if(deleteNode.getRight() != null)
+            else if(deleteNode.getParent().getRight() == deleteNode)
             {
-                deleteNode.getParent().setRight(deleteNode.getRight());
+                if(deleteNode.getLeft() != null)
+                {
+                    deleteNode.getParent().setRight(deleteNode.getLeft());
+                }
+                else if(deleteNode.getRight() != null)
+                {
+                    deleteNode.getParent().setRight(deleteNode.getRight());
+                }
             }
         }
     }
