@@ -130,6 +130,41 @@ public class BinarySearchTree
         }
     }
     
+    public void searchByKeyword(String keyword) // return the node
+    {
+        Node result = new Node();
+        if(root != null)
+        {
+            result = findByKeyword(root, keyword);
+        }
+        
+        System.out.println(result.getTitle());
+        //return null;
+    }
+    
+    private Node findByKeyword(Node search, String keyword)
+    {
+        if(search == null)
+        {
+            return null;
+        }
+        
+        if(search.getTitle().contains(keyword))
+        {
+            return search;
+        }
+        else
+        {
+            Node returnNode =  findByKeyword(search.getLeft(), keyword);
+            
+            if(returnNode == null)
+            {
+                returnNode =  findByKeyword(search.getRight(), keyword);
+            }
+            return returnNode;
+        }
+    }
+    
     public boolean deleteByTitle(String title)
     {
         Node deleteNode = findByTitle(root, title); // use searchByTitle()
@@ -165,7 +200,7 @@ public class BinarySearchTree
             candidate.setLeft(deleteNode.getLeft());
             candidate.setRight(deleteNode.getRight());
             
-            if(deleteNode.getParent() == null)
+            if(deleteNode.getParent() == null) // delete node is the root
             {
                 root = candidate;
             }
@@ -194,7 +229,7 @@ public class BinarySearchTree
     
     private void deleteInternalNode(Node deleteNode) // has only one child
     {
-        if(deleteNode.getParent() == null) // is the root
+        if(deleteNode.getParent() == null) // deletenode is the root
         {
             Node candidate = getCandidate(deleteNode.getRight());
             delete(candidate);
