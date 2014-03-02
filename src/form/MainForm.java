@@ -4,6 +4,8 @@
  */
 package form;
 
+import classes.BinarySearchTree;
+
 /**
  *
  * @author Trish
@@ -104,6 +106,8 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public BinarySearchTree bst = new BinarySearchTree();
+    
     private void btnMainInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainInsertActionPerformed
         new InsertBook().setVisible(true);
     }//GEN-LAST:event_btnMainInsertActionPerformed
