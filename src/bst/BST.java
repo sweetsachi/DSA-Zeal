@@ -10,7 +10,7 @@ import classes.Node;
 
 /**
  *
- * @author HP
+ * @author Sachini
  */
 public class BST {
 
@@ -23,6 +23,13 @@ public class BST {
         
 //        MainForm home = new MainForm();
 //        home.setVisible(true);
+        
+//        NewJPanel home = new NewJPanel();
+//        home.setVisible(true);
+        
+        TabHome hm = new TabHome();
+        hm.setVisible(true);
+        
         System.out.println("insert \n\n");
         tree.insert("AAA","asdf","qwer", 111);
         tree.insert("ABC","asdf","qwer", 111);
