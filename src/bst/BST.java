@@ -47,10 +47,10 @@ public class BST {
         BinarySearchTree searchResult = tree.searchByKeyword("C");
         searchResult.print();
         
-//        System.out.println("delete");
-//        tree.deleteByTitle("ABB");
-////        
-//        System.out.println("after delete");
-//        tree.print();
+        System.out.println("\ndelete ABB \n");
+        tree.deleteByTitle("ABB");
+     
+        System.out.println("\ntree after delete \n");
+        tree.print();
     }
 }
