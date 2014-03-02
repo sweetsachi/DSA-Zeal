@@ -69,9 +69,39 @@ public class Node {
         return this.title;
     }
     
+    public void setTitle(String title)
+    {
+        this.title= title;
+    }
+    
+    public String getAuthorName()
+    {
+        return this.authorName;
+    }
+    
+    public void setAuthorName(String authorName)
+    {
+        this.authorName= authorName;
+    }
+    
+    public String getAuthorSurname()
+    {
+        return this.authorSurname;
+    }
+    
+    public void setAuthorSurname(String authorSurname)
+    {
+        this.authorSurname= authorSurname;
+    }
+    
     public int getIsbn()
     {
         return this.isbn;
+    }
+    
+    public void setIsbn(int isbn)
+    {
+        this.isbn= isbn;
     }
                       
 }
