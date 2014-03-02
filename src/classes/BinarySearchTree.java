@@ -4,13 +4,16 @@
  */
 package classes;
 
+//import javax.swing.table.TableModel;
+
 /**
  *
- * @author HP
+ * @author Sachini
  */
 public class BinarySearchTree
 {
     Node root;
+    //Node[] searchList = new Node[30];
     
     public void insert(String title, String authorName, String authorSurname, int isbn)
     {
@@ -95,7 +98,40 @@ public class BinarySearchTree
         }
     }
     
-    public void searchByTitle(String title) // return the node
+    public BinarySearchTree searchByKeyword(String keyword) // return the result tree
+    {
+        BinarySearchTree bst = new BinarySearchTree();
+        bst = this.findByKeyword(this.root, keyword, new BinarySearchTree());
+        //bst.print();
+        
+        return bst;
+        
+    }  
+    
+    private BinarySearchTree findByKeyword(Node node, String keyword, BinarySearchTree bst)
+    {
+        if(node.getLeft() != null)
+        {
+            findByKeyword(node.getLeft(),keyword, bst);
+        }
+        
+        //System.out.println(node.getTitle());
+        if(node.getTitle().contains(keyword))
+        {
+           //Node keyResult = new Node(node.getTitle(),node.getAuthorName(),node.getAuthorSurname(),node.getIsbn());
+           //bst.insert_2(keyResult);
+           bst.insert(node.getTitle(),node.getAuthorName(),node.getAuthorSurname(),node.getIsbn());
+        }
+        
+        if(node.getRight() != null)
+        { 
+            findByKeyword(node.getRight(),keyword, bst);
+        }
+        
+        return bst;
+    }
+    
+    public Node searchByTitle(String title) // return the node
     {
         Node result = new Node();
         if(root != null)
@@ -103,8 +139,8 @@ public class BinarySearchTree
             result = findByTitle(root, title);
         }
         
-        System.out.println(result.getTitle());
-        //return null;
+        //System.out.println(result.getTitle());
+        return result;
     }
     
     private Node findByTitle(Node search, String title)
@@ -125,41 +161,6 @@ public class BinarySearchTree
             if(returnNode == null)
             {
                 returnNode = findByTitle(search.getRight(), title);
-            }
-            return returnNode;
-        }
-    }
-    
-    public void searchByKeyword(String keyword) // return the node
-    {
-        Node result = new Node();
-        if(root != null)
-        {
-            result = findByKeyword(root, keyword);
-        }
-        
-        System.out.println(result.getTitle());
-        //return null;
-    }
-    
-    private Node findByKeyword(Node search, String keyword)
-    {
-        if(search == null)
-        {
-            return null;
-        }
-        
-        if(search.getTitle().contains(keyword))
-        {
-            return search;
-        }
-        else
-        {
-            Node returnNode =  findByKeyword(search.getLeft(), keyword);
-            
-            if(returnNode == null)
-            {
-                returnNode =  findByKeyword(search.getRight(), keyword);
             }
             return returnNode;
         }
