@@ -5,6 +5,8 @@
 package bst;
 
 import classes.BinarySearchTree;
+import classes.Node;
+import form.MainForm;
 
 /**
  *
@@ -19,6 +21,9 @@ public class BST {
         // TODO code application logic here
         BinarySearchTree tree = new BinarySearchTree();
         
+//        MainForm home = new MainForm();
+//        home.setVisible(true);
+        System.out.println("insert \n\n");
         tree.insert("AAA","asdf","qwer", 111);
         tree.insert("ABC","asdf","qwer", 111);
         tree.insert("ABB","asdf","qwer", 111);
@@ -31,12 +36,16 @@ public class BST {
         tree.insert("D BBC","asdf","qwer", 118);
         tree.insert("F ABC","asdf","qwer", 119);
         
+        System.out.println("print\n");
         tree.print();
         
-        System.out.println("search");
-        tree.searchByTitle("C BB");
+        System.out.println("\n\nsearch");
+        Node n1 = tree.searchByTitle("C BB");
+        System.out.println("\n"+n1.getTitle()+"  "+n1.getAuthorName()+"  "+n1.getIsbn()+"\n");
         
-        tree.searchByKeyword("A");
+        System.out.println("\nsearch by keyword\n");
+        BinarySearchTree searchResult = tree.searchByKeyword("C");
+        searchResult.print();
         
 //        System.out.println("delete");
 //        tree.deleteByTitle("ABB");
