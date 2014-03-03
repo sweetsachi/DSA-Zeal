@@ -4,7 +4,8 @@
  */
 package classes;
 
-//import javax.swing.table.TableModel;
+import javax.swing.table.TableModel;
+import java.util.Vector;
 
 /**
  *
@@ -59,26 +60,8 @@ public class BinarySearchTree
     public void print()
     {
         if(root != null)
-        {
-            Node nodeToTraverse = root;
-            
-            if(nodeToTraverse.getLeft() == null && nodeToTraverse.getRight() == null)
-            {
-                System.out.println(nodeToTraverse.getTitle());
-            }
-            else
-            {
-                if(nodeToTraverse.getLeft() != null)
-                {
-                    inOrderTraversal(nodeToTraverse.getLeft());
-                }
-                System.out.println(nodeToTraverse.getTitle());
-                if(nodeToTraverse.getRight() != null)
-                {
-                    inOrderTraversal(nodeToTraverse.getRight());
-                }
-                
-            }
+        {        
+            inOrderTraversal(root);
             
         }
     }
@@ -131,6 +114,41 @@ public class BinarySearchTree
         return bst;
     }
     
+    public Node searchByIsbn(int isbn)
+    {
+        Node result = new Node();
+        
+        if(root != null)
+        {
+            result = findByIsbn(root, isbn);
+        }
+        
+        return result;
+    }
+    
+    private Node findByIsbn(Node search, int isbn)
+    {
+       if(search == null)
+        {
+            return null;
+        }
+        
+        if(search.getIsbn() == isbn )
+        {
+            return search;
+        }
+        else
+        {
+            Node returnNode = findByIsbn(search.getLeft(), isbn);
+            
+            if(returnNode == null)
+            {
+                returnNode = findByIsbn(search.getRight(), isbn);
+            }
+            return returnNode;
+        } 
+    }
+    
     public Node searchByTitle(String title) // return the node
     {
         Node result = new Node();
@@ -173,9 +191,27 @@ public class BinarySearchTree
         if(deleteNode != null)
         {
             delete(deleteNode);
+            return true;
         }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean deleteByIsbn(int isbn)
+    {
+        Node deleteNode = findByIsbn(root, isbn); // use searchByTitle()
         
-        return false;
+        if(deleteNode != null)
+        {
+            delete(deleteNode);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     
     private void delete(Node deleteNode)
