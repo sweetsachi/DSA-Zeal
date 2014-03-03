@@ -16,7 +16,7 @@ public class BinarySearchTree
     Node root;
     //Node[] searchList = new Node[30];
     
-    public void insert(String title, String authorName, String authorSurname, int isbn)
+    public void insert(String title, String authorName, String authorSurname, int isbn) // add new node to the tree
     {
         Node newNode = new Node(title, authorName, authorSurname, isbn);
         
@@ -57,7 +57,7 @@ public class BinarySearchTree
         }
     }
     
-    public void print()
+    public void print() //display nodes in the tree
     {
         if(root != null)
         {        
@@ -81,7 +81,7 @@ public class BinarySearchTree
         }
     }
     
-    public BinarySearchTree searchByKeyword(String keyword) // return the result tree
+    public BinarySearchTree searchByKeyword(String keyword) // search the tree using a given key word and return the resulting tree
     {
         BinarySearchTree bst = new BinarySearchTree();
         bst = this.findByKeyword(this.root, keyword, new BinarySearchTree());
@@ -101,8 +101,6 @@ public class BinarySearchTree
         //System.out.println(node.getTitle());
         if(node.getTitle().contains(keyword))
         {
-           //Node keyResult = new Node(node.getTitle(),node.getAuthorName(),node.getAuthorSurname(),node.getIsbn());
-           //bst.insert_2(keyResult);
            bst.insert(node.getTitle(),node.getAuthorName(),node.getAuthorSurname(),node.getIsbn());
         }
         
@@ -114,7 +112,7 @@ public class BinarySearchTree
         return bst;
     }
     
-    public Node searchByIsbn(int isbn)
+    public Node searchByIsbn(int isbn) // search the tree using the ISBN number and return the matching node
     {
         Node result = new Node();
         
@@ -149,7 +147,7 @@ public class BinarySearchTree
         } 
     }
     
-    public Node searchByTitle(String title) // return the node
+    public Node searchByTitle(String title) // search the tree using the Title number and return the matching node
     {
         Node result = new Node();
         if(root != null)
@@ -184,7 +182,7 @@ public class BinarySearchTree
         }
     }
     
-    public boolean deleteByTitle(String title)
+    public boolean deleteByTitle(String title) // delete the node with matching title
     {
         Node deleteNode = findByTitle(root, title); // use searchByTitle()
         
@@ -199,7 +197,7 @@ public class BinarySearchTree
         }
     }
     
-    public boolean deleteByIsbn(int isbn)
+    public boolean deleteByIsbn(int isbn) // delete the node with matching Isbn
     {
         Node deleteNode = findByIsbn(root, isbn); // use searchByTitle()
         
@@ -302,7 +300,7 @@ public class BinarySearchTree
         }
     }
     
-    private Node getCandidate(Node node)
+    private Node getCandidate(Node node) // select the next suitable node to repalce the deleting node in the tree
     {
         if(node.getLeft() == null)
         {
