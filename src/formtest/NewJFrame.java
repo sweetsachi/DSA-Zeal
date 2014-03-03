@@ -6,6 +6,11 @@
 
 package formtest;
 
+import classes.BinarySearchTree;
+import classes.Node;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Sajid
@@ -22,6 +27,8 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
     }
+    
+    BinarySearchTree bst = new BinarySearchTree();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,14 +52,21 @@ public class NewJFrame extends javax.swing.JFrame {
         txtAuthorSurname = new javax.swing.JTextField();
         btnInsert = new javax.swing.JButton();
         btnClear1 = new javax.swing.JButton();
-        btnBack1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        btnBack2 = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         cmbDelete = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         btnDeleteTitle = new javax.swing.JRadioButton();
         btnDeleteIsbn = new javax.swing.JRadioButton();
+        txtDelete = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        txtPrint = new javax.swing.JTextField();
+        btnClear2 = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         btnSearchTitle = new javax.swing.JRadioButton();
         btnSearchIsbn = new javax.swing.JRadioButton();
@@ -60,27 +74,36 @@ public class NewJFrame extends javax.swing.JFrame {
         txtSearch = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btnClear = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        txtPrint = new javax.swing.JTextField();
-        btnBack3 = new javax.swing.JButton();
-        btnClear2 = new javax.swing.JButton();
-        btnPrint = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txtIsbn1 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtTitle1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtAuthorName1 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtAuthorSurname1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel3.setText("ISBN ");
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 27, -1, -1));
+        jPanel5.add(txtIsbn, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 24, 271, -1));
 
         jLabel4.setText("Book Title");
+        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 75, -1, -1));
+        jPanel5.add(txtTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 72, 271, -1));
 
         jLabel5.setText("Author Name");
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 120, -1, -1));
+        jPanel5.add(txtAuthorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 117, 271, -1));
 
         jLabel6.setText("Author Surname");
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 165, -1, -1));
+        jPanel5.add(txtAuthorSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 162, 271, -1));
 
         btnInsert.setText("INSERT");
         btnInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +111,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnInsertActionPerformed(evt);
             }
         });
+        jPanel5.add(btnInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 118, -1));
 
         btnClear1.setText("CLEAR");
         btnClear1.addActionListener(new java.awt.event.ActionListener() {
@@ -95,87 +119,22 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnClear1ActionPerformed(evt);
             }
         });
-
-        btnBack1.setText("<<");
-        btnBack1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(btnBack1)
-                        .addGap(38, 38, 38)
-                        .addComponent(btnClear1)
-                        .addGap(45, 45, 45)
-                        .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtAuthorName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTitle, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIsbn, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAuthorSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(141, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtAuthorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtAuthorSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInsert)
-                    .addComponent(btnClear1)
-                    .addComponent(btnBack1))
-                .addGap(38, 38, 38))
-        );
+        jPanel5.add(btnClear1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Insert", jPanel1);
 
-        btnBack2.setText("<<");
-        btnBack2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack2ActionPerformed(evt);
-            }
-        });
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -183,135 +142,28 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
+        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 149, -1));
 
         cmbDelete.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(cmbDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 191, -1));
 
         jLabel7.setText("Title / ISBN");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         btnDeleteTitle.setText("Delete By Title");
+        jPanel2.add(btnDeleteTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 115, -1));
 
         btnDeleteIsbn.setText("Delete By ISBN");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(205, Short.MAX_VALUE)
-                        .addComponent(btnBack2)
-                        .addGap(121, 121, 121)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(39, 39, 39)
-                                .addComponent(cmbDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnDeleteTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnDeleteIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(91, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeleteTitle)
-                    .addComponent(btnDeleteIsbn))
-                .addGap(37, 37, 37)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(cmbDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack2)
-                    .addComponent(btnDelete))
-                .addContainerGap(61, Short.MAX_VALUE))
-        );
+        jPanel2.add(btnDeleteIsbn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 115, -1));
+        jPanel2.add(txtDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 190, -1));
 
         jTabbedPane1.addTab("Delete", jPanel2);
 
-        btnSearchTitle.setText("Search By Title");
-
-        btnSearchIsbn.setText("Search By ISBN");
-
-        btnSearch.setText("SEARCH");
-
-        jLabel2.setText("Title / ISBN");
-
-        btnClear.setText("CLEAR");
-        btnClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearActionPerformed(evt);
-            }
-        });
-
-        btnBack.setText("<<");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(26, 26, 26)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnSearchTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSearchIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 346, Short.MAX_VALUE)
-                        .addComponent(btnClear)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBack))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtSearch)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSearch)))
-                .addGap(48, 48, 48))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSearchTitle)
-                    .addComponent(btnSearchIsbn))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(btnClear))
-                .addGap(58, 58, 58))
-        );
-
-        jTabbedPane1.addTab("Search", jPanel3);
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setText("Book Type");
-
-        btnBack3.setText("<<");
-        btnBack3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack3ActionPerformed(evt);
-            }
-        });
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+        jPanel4.add(txtPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 280, -1));
 
         btnClear2.setText("CLEAR");
         btnClear2.addActionListener(new java.awt.event.ActionListener() {
@@ -319,8 +171,15 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnClear2ActionPerformed(evt);
             }
         });
+        jPanel4.add(btnClear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 77, -1));
 
         btnPrint.setText("PRINT");
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 99, -1));
 
         btnView.setText("VIEW");
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -328,60 +187,70 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnViewActionPerformed(evt);
             }
         });
+        jPanel4.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 86, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnClear2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBack3)
-                        .addGap(27, 27, 27)
-                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel8)
-                        .addGap(59, 59, 59)
-                        .addComponent(txtPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 9, Short.MAX_VALUE)))
-                .addContainerGap(102, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txtPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addComponent(btnPrint))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnView)
-                            .addComponent(btnBack3))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnClear2)
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 460, 170));
 
         jTabbedPane1.addTab("Print", jPanel4);
 
-        jButton1.setText("Exit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnSearchTitle.setText("Search By Title");
+        jPanel3.add(btnSearchTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 140, -1));
+
+        btnSearchIsbn.setText("Search By ISBN");
+        jPanel3.add(btnSearchIsbn, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 140, -1));
+
+        btnSearch.setText("SEARCH");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
+        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
+        jPanel3.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 250, -1));
+
+        jLabel2.setText("Title / ISBN");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        btnClear.setText("CLEAR");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
+
+        jLabel9.setText("ISBN ");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+        jPanel3.add(txtIsbn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 271, -1));
+
+        jLabel10.setText("Book Title");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        jPanel3.add(txtTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 271, -1));
+
+        jLabel11.setText("Author Name");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
+        jPanel3.add(txtAuthorName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 271, -1));
+
+        jLabel12.setText("Author Surname");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+        jPanel3.add(txtAuthorSurname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 271, -1));
+
+        jTabbedPane1.addTab("Search", jPanel3);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Zeal Book Store");
@@ -390,15 +259,11 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(200, 200, 200)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -407,47 +272,56 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(45, 45, 45))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
+        txtIsbn1.setText(null);
+        txtTitle1.setText(null);
+        txtAuthorName1.setText(null);
+        txtAuthorSurname1.setText(null);
+        txtSearch.setText(null);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        
+        bst.insert(txtTitle.getText(), txtAuthorName.getText(), txtAuthorSurname.getText(), Integer.parseInt(txtIsbn.getText()));
 
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnClear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClear1ActionPerformed
         // TODO add your handling code here:
+        txtIsbn.setText(null);
+        txtTitle.setText(null);
+        txtAuthorName.setText(null);
+        txtAuthorSurname.setText(null);
     }//GEN-LAST:event_btnClear1ActionPerformed
-
-    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBack1ActionPerformed
-
-    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBack2ActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        Boolean r = false;
+        if(btnDeleteTitle.isSelected())
+        {
+            r =  bst.deleteByTitle(txtDelete.getText());
+        }
+        else if(btnDeleteIsbn.isSelected())
+        {
+            r = bst.deleteByIsbn(Integer.parseInt(txtDelete.getText()));
+        }
+        
+        if(r)
+        {
+            JOptionPane.showMessageDialog(null, "Record Deleted", "DELETE BOOK", 1, null);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Record not found.", "DELETE BOOK", 1, null);
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnBack3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBack3ActionPerformed
 
     private void btnClear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClear2ActionPerformed
         // TODO add your handling code here:
@@ -457,10 +331,39 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        
+        //model.a
+    }//GEN-LAST:event_btnPrintActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        Node node = new Node();
+        
+        if(btnSearchTitle.isSelected())
+        {
+            node = bst.searchByTitle(txtSearch.getText());
+        }
+        else if (btnSearchIsbn.isSelected())
+        {
+            node = bst.searchByIsbn(Integer.parseInt(txtSearch.getText()));
+        }
+        
+        if( node == null)
+        {
+            JOptionPane.showMessageDialog(null, "Record not found.", "SEARCH BOOK", 1, null);
+        }
+        else
+        {
+            txtIsbn1.setText(node.getIsbn()+"");
+            txtTitle1.setText(node.getTitle());
+            txtAuthorName1.setText(node.getAuthorName());
+            txtAuthorSurname1.setText(node.getAuthorSurname());
+        }
+        
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -498,10 +401,6 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnBack1;
-    private javax.swing.JButton btnBack2;
-    private javax.swing.JButton btnBack3;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnClear1;
     private javax.swing.JButton btnClear2;
@@ -515,8 +414,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnSearchTitle;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox cmbDelete;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -524,17 +425,25 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtAuthorName;
+    private javax.swing.JTextField txtAuthorName1;
     private javax.swing.JTextField txtAuthorSurname;
+    private javax.swing.JTextField txtAuthorSurname1;
+    private javax.swing.JTextField txtDelete;
     private javax.swing.JTextField txtIsbn;
+    private javax.swing.JTextField txtIsbn1;
     private javax.swing.JTextField txtPrint;
     private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtTitle;
+    private javax.swing.JTextField txtTitle1;
     // End of variables declaration//GEN-END:variables
 }
