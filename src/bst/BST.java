@@ -7,6 +7,7 @@ package bst;
 import classes.BinarySearchTree;
 import classes.Node;
 //import form.MainForm;
+import formtest.NewJFrame;
 
 /**
  *
@@ -21,13 +22,7 @@ public class BST {
         // TODO code application logic here
         BinarySearchTree tree = new BinarySearchTree();
         
-//        MainForm home = new MainForm();
-//        home.setVisible(true);
-        
-//        NewJPanel home = new NewJPanel();
-//        home.setVisible(true);
-        
-        TabHome hm = new TabHome();
+        NewJFrame hm = new NewJFrame();
         hm.setVisible(true);
         
         System.out.println("insert \n\n");
@@ -59,5 +54,7 @@ public class BST {
      
         System.out.println("\ntree after delete \n");
         tree.print();
+        
+        //tree.inOrderTraversal(n1);
     }
 }
