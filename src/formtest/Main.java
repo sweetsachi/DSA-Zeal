@@ -53,8 +53,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sajid\\Documents\\NetBeansProjects\\new\\DSA-Zeal\\src\\formtest\\Capture.PNG")); // NOI18N
-
         jLabel2.setFont(new java.awt.Font("Informal Roman", 0, 48)); // NOI18N
         jLabel2.setText("ZEAL BOOK STORE");
 
