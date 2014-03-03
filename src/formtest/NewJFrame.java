@@ -54,7 +54,6 @@ public class NewJFrame extends javax.swing.JFrame {
         btnClear1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnDelete = new javax.swing.JButton();
-        cmbDelete = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         btnDeleteTitle = new javax.swing.JRadioButton();
         btnDeleteIsbn = new javax.swing.JRadioButton();
@@ -144,9 +143,6 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 149, -1));
 
-        cmbDelete.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(cmbDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 191, -1));
-
         jLabel7.setText("Title / ISBN");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
@@ -155,7 +151,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         btnDeleteIsbn.setText("Delete By ISBN");
         jPanel2.add(btnDeleteIsbn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 115, -1));
-        jPanel2.add(txtDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 190, -1));
+        jPanel2.add(txtDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 190, -1));
 
         jTabbedPane1.addTab("Delete", jPanel2);
 
@@ -333,8 +329,11 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
         
+        
+        BinarySearchTree r = bst.searchByKeyword(txtPrint.getText());
+        
+        r.print();
         //model.a
     }//GEN-LAST:event_btnPrintActionPerformed
 
@@ -413,7 +412,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnSearchIsbn;
     private javax.swing.JRadioButton btnSearchTitle;
     private javax.swing.JButton btnView;
-    private javax.swing.JComboBox cmbDelete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
