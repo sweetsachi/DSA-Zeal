@@ -8,6 +8,7 @@ package formtest;
 
 import classes.BinarySearchTree;
 import classes.Node;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,6 +30,9 @@ public class NewJFrame extends javax.swing.JFrame {
     }
     
     BinarySearchTree bst = new BinarySearchTree();
+    
+    ButtonGroup dlt = new ButtonGroup();
+    ButtonGroup search = new ButtonGroup();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -145,9 +149,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel7.setText("Title / ISBN");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
+        dlt.add(btnDeleteTitle);
         btnDeleteTitle.setText("Delete By Title");
         jPanel2.add(btnDeleteTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 115, -1));
 
+        dlt.add(btnDeleteIsbn);
         btnDeleteIsbn.setText("Delete By ISBN");
         jPanel2.add(btnDeleteIsbn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 115, -1));
         jPanel2.add(txtDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 190, -1));
@@ -201,11 +207,13 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        search.add(btnSearchTitle);
         btnSearchTitle.setText("Search By Title");
-        jPanel3.add(btnSearchTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 140, -1));
+        jPanel3.add(btnSearchTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 140, -1));
 
+        search.add(btnSearchIsbn);
         btnSearchIsbn.setText("Search By ISBN");
-        jPanel3.add(btnSearchIsbn, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 140, -1));
+        jPanel3.add(btnSearchIsbn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 140, -1));
 
         btnSearch.setText("SEARCH");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -337,6 +345,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void btnClear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClear2ActionPerformed
         // TODO add your handling code here:
+         DefaultTableModel mdl = (DefaultTableModel)jTable1.getModel();
+         mdl.setRowCount(0);
     }//GEN-LAST:event_btnClear2ActionPerformed
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
@@ -346,19 +356,25 @@ public class NewJFrame extends javax.swing.JFrame {
         BinarySearchTree r = bst.searchByKeyword(txtPrint.getText());
         
         DefaultTableModel mdl = (DefaultTableModel)jTable1.getModel();
+        mdl.setRowCount(0);
+
        
         for (int i = 0; i < r.print().size(); i++)
         {
-//           for(int j=0; j< jTable1.getColumnCount(); j++)
-//            {
-                //mdl.addRow((Object)r.print().get(i));
-                mdl.setValueAt((Object)r.print().get(i).getTitle(), i, 0);
-                mdl.setValueAt((Object)r.print().get(i).getAuthorName(), i, 1);
-                mdl.setValueAt((Object)r.print().get(i).getAuthorSurname(), i, 2);
-                mdl.setValueAt((Object)r.print().get(i).getIsbn(), i, 3);
+                String[] row = new String[4];
                 
-                //mdl.addRow((Object)[]);
-            //}
+                row[0] = r.print().get(i).getTitle();
+                row[1] = r.print().get(i).getAuthorName();
+                row[2] = r.print().get(i).getAuthorSurname();
+                row[3] = r.print().get(i).getIsbn()+"";
+                
+//                mdl.setValueAt((Object)r.print().get(i).getTitle(), i, 0);
+//                mdl.setValueAt((Object)r.print().get(i).getAuthorName(), i, 1);
+//                mdl.setValueAt((Object)r.print().get(i).getAuthorSurname(), i, 2);
+//                mdl.setValueAt((Object)r.print().get(i).getIsbn(), i, 3);
+                
+                mdl.addRow(row);
+            
         }
     }//GEN-LAST:event_btnPrintActionPerformed
 

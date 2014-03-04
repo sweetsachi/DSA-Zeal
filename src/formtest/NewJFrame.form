@@ -212,6 +212,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="btnDeleteTitle">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="dlt" type="code"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Delete By Title"/>
               </Properties>
               <Constraints>
@@ -222,6 +225,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="btnDeleteIsbn">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="dlt" type="code"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Delete By ISBN"/>
               </Properties>
               <Constraints>
@@ -365,21 +371,27 @@
           <SubComponents>
             <Component class="javax.swing.JRadioButton" name="btnSearchTitle">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="search" type="code"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Search By Title"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="200" y="10" width="140" height="-1"/>
+                  <AbsoluteConstraints x="100" y="10" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JRadioButton" name="btnSearchIsbn">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="search" type="code"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Search By ISBN"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="340" y="10" width="140" height="-1"/>
+                  <AbsoluteConstraints x="260" y="10" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
