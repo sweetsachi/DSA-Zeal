@@ -63,7 +63,6 @@ public class NewJFrame extends javax.swing.JFrame {
         txtPrint = new javax.swing.JTextField();
         btnClear2 = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -159,7 +158,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jLabel8.setText("Book Type");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-        jPanel4.add(txtPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 280, -1));
+        jPanel4.add(txtPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 270, -1));
 
         btnClear2.setText("CLEAR");
         btnClear2.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +166,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnClear2ActionPerformed(evt);
             }
         });
-        jPanel4.add(btnClear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 77, -1));
+        jPanel4.add(btnClear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 99, -1));
 
         btnPrint.setText("PRINT");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
@@ -175,30 +174,28 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnPrintActionPerformed(evt);
             }
         });
-        jPanel4.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 99, -1));
-
-        btnView.setText("VIEW");
-        btnView.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 86, -1));
+        jPanel4.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 99, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title", "Author Name", "Author Surname", "ISBN"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 460, 170));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 460, 190));
 
         jTabbedPane1.addTab("Print", jPanel4);
 
@@ -232,15 +229,15 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jLabel9.setText("ISBN ");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
-        jPanel3.add(txtIsbn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 271, -1));
+        jPanel3.add(txtIsbn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 271, -1));
 
         jLabel10.setText("Book Title");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
         jPanel3.add(txtTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 271, -1));
 
         jLabel11.setText("Author Name");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
-        jPanel3.add(txtAuthorName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 271, -1));
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+        jPanel3.add(txtAuthorName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 271, -1));
 
         jLabel12.setText("Author Surname");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
@@ -285,10 +282,29 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        bst.insert(txtTitle.getText(), txtAuthorName.getText(), txtAuthorSurname.getText(), Integer.parseInt(txtIsbn.getText()));
-
+        if( isNumeric(txtIsbn.getText()))
+        {
+            bst.insert(txtTitle.getText(), txtAuthorName.getText(), txtAuthorSurname.getText(), Integer.parseInt(txtIsbn.getText()));
+            JOptionPane.showMessageDialog(null, "Record inserted.", "INSERT BOOK", 1, null);
+        }
+        //bst.insert(txtTitle.getText(), txtAuthorName.getText(), txtAuthorSurname.getText(), Integer.parseInt(txtIsbn.getText()));
+        else
+        {
+            JOptionPane.showMessageDialog(null, "ISBN should be a Numeric value.", "INSERT BOOK", 1, null);
+        }
     }//GEN-LAST:event_btnInsertActionPerformed
 
+    private boolean isNumeric(String text) {
+        if (text == null || text.trim().equals("")) {
+            return false;
+        }
+        for (int iCount = 0; iCount < text.length(); iCount++) {
+            if (!Character.isDigit(text.charAt(iCount))) {
+                return false;
+            }
+        }
+        return true;
+    }
     private void btnClear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClear1ActionPerformed
         // TODO add your handling code here:
         txtIsbn.setText(null);
@@ -323,18 +339,27 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnClear2ActionPerformed
 
-    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnViewActionPerformed
-
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         // TODO add your handling code here:
         
         
         BinarySearchTree r = bst.searchByKeyword(txtPrint.getText());
         
-        r.print();
-        //model.a
+        DefaultTableModel mdl = (DefaultTableModel)jTable1.getModel();
+       
+        for (int i = 0; i < r.print().size(); i++)
+        {
+//           for(int j=0; j< jTable1.getColumnCount(); j++)
+//            {
+                //mdl.addRow((Object)r.print().get(i));
+                mdl.setValueAt((Object)r.print().get(i).getTitle(), i, 0);
+                mdl.setValueAt((Object)r.print().get(i).getAuthorName(), i, 1);
+                mdl.setValueAt((Object)r.print().get(i).getAuthorSurname(), i, 2);
+                mdl.setValueAt((Object)r.print().get(i).getIsbn(), i, 3);
+                
+                //mdl.addRow((Object)[]);
+            //}
+        }
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -411,7 +436,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JRadioButton btnSearchIsbn;
     private javax.swing.JRadioButton btnSearchTitle;
-    private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
