@@ -4,6 +4,9 @@
  */
 package classes;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.TableModel;
 import java.util.Vector;
 
@@ -57,28 +60,35 @@ public class BinarySearchTree
         }
     }
     
-    public void print() //display nodes in the tree
+    public List<Node> print() //display nodes in the tree
     {
+        List<Node> list = new ArrayList<Node>();
         if(root != null)
-        {        
-            inOrderTraversal(root);
+        {   
+            list = inOrderTraversal(root,list);
             
         }
+        
+        return list;
     }
     
-    private void inOrderTraversal(Node node)
+    private List<Node> inOrderTraversal(Node node, List<Node> list)
     {
         if(node.getLeft() != null)
         {
-            inOrderTraversal(node.getLeft());
+            list = inOrderTraversal(node.getLeft(),list);
         }
         
-        System.out.println(node.getTitle());
+        //System.out.println(node.getTitle());
+        //list.add(node.getTitle()+" , "+node.getAuthorName()+" , "+node.getAuthorSurname());
+        list.add(node);
         
         if(node.getRight() != null)
         { 
-            inOrderTraversal(node.getRight());
+            list = inOrderTraversal(node.getRight(),list);
         }
+        
+        return list;
     }
     
     public BinarySearchTree searchByKeyword(String keyword) // search the tree using a given key word and return the resulting tree
