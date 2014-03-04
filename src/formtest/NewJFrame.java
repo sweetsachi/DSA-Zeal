@@ -113,7 +113,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnInsertActionPerformed(evt);
             }
         });
-        jPanel5.add(btnInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 118, -1));
+        jPanel5.add(btnInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 100, 20));
 
         btnClear1.setText("CLEAR");
         btnClear1.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +121,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnClear1ActionPerformed(evt);
             }
         });
-        jPanel5.add(btnClear1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
+        jPanel5.add(btnClear1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 100, 20));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,7 +144,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 149, -1));
+        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 100, 20));
 
         jLabel7.setText("Title / ISBN");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
@@ -172,7 +172,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnClear2ActionPerformed(evt);
             }
         });
-        jPanel4.add(btnClear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 99, -1));
+        jPanel4.add(btnClear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 100, 20));
 
         btnPrint.setText("PRINT");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +180,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnPrintActionPerformed(evt);
             }
         });
-        jPanel4.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 99, -1));
+        jPanel4.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 100, 20));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -221,7 +221,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
-        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
+        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 100, 20));
         jPanel3.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 250, -1));
 
         jLabel2.setText("Title / ISBN");
@@ -233,7 +233,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 btnClearActionPerformed(evt);
             }
         });
-        jPanel3.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, -1, -1));
+        jPanel3.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 100, 20));
 
         jLabel9.setText("ISBN ");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
