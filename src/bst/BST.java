@@ -39,7 +39,7 @@ public class BST {
         tree.insert("F ABC","asdf","qwer", 119);
         
         System.out.println("print\n");
-        tree.print();
+        //tree.print();
         
         System.out.println("\n\nsearch");
         Node n1 = tree.searchByTitle("C BB");
@@ -47,13 +47,13 @@ public class BST {
         
         System.out.println("\nsearch by keyword\n");
         BinarySearchTree searchResult = tree.searchByKeyword("C");
-        searchResult.print();
+        //searchResult.print();
         
         System.out.println("\ndelete ABB \n");
         tree.deleteByTitle("ABB");
      
         System.out.println("\ntree after delete \n");
-        tree.print();
+        //tree.print();
         
         //tree.inOrderTraversal(n1);
     }
